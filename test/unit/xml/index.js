@@ -6,7 +6,7 @@ describe('svg-react-loader/lib/xml', () => {
     const read = require('../../../lib/util/read-file');
 
     it('should parse xml correctly', (done) => {
-        read('test/unit/xml/simple.svg').
+        read('test/samples/simple.svg').
             flatMap(xml.parse).
             subscribe(
                 (result) => {
@@ -15,8 +15,6 @@ describe('svg-react-loader/lib/xml', () => {
                         eql({
                             "props": {
                                 "version": "1.1",
-                                "xmlns": "http://www.w3.org/2000/svg",
-                                "xmlnsXlink": "http://www.w3.org/1999/xlink",
                                 "x": "0px",
                                 "y": "0px",
                                 "viewbox": "0 0 16 16",
@@ -24,7 +22,7 @@ describe('svg-react-loader/lib/xml', () => {
                                 "xmlSpace": "preserve",
                                 "className": "simple"
                             },
-                            "#name": "svg",
+                            "tagname": "svg",
                             "children": [
                                 {
                                     "props": {
@@ -34,7 +32,7 @@ describe('svg-react-loader/lib/xml', () => {
                                         "height": "16",
                                         "fill": "#fff"
                                     },
-                                    "#name": "rect"
+                                    "tagname": "rect"
                                 }
                             ]
                         });
